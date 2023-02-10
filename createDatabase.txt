@@ -1,0 +1,29 @@
+DROP DATABASE IF EXISTS project_db384;
+
+    CREATE DATABASE IF NOT EXISTS project_db384;
+    
+    use project_db384;
+    
+    create table dev_groups(group_id int primary key auto_increment , group_name varchar(50));
+    
+    insert into dev_groups(group_name)
+    value('Front end');
+    insert into dev_groups(group_name)
+    value('Back end');
+    insert into dev_groups(group_name)
+    value('Api');
+    insert into dev_groups(group_name)
+    value('Human Resources');
+    
+    create table meetings(meeting_id int primary key auto_increment ,group_id int, FOREIGN KEY (group_id) REFERENCES dev_groups(group_id), meeting_start datetime, meeting_end datetime, meeting_description varchar(50), meeting_room varchar(50));
+    
+    insert into meetings(group_id, meeting_start, meeting_end, meeting_description, meeting_room)
+    value('1','2022-06-11 13:25:00','2022-06-11 15:25:00','description','room_1');
+    insert into meetings(group_id, meeting_start, meeting_end, meeting_description, meeting_room)
+    value('2','2022-06-11 14:25:00','2022-06-11 16:25:00','description','room_2');
+    insert into meetings(group_id, meeting_start, meeting_end, meeting_description, meeting_room)
+    value('3','2022-06-11 15:25:00','2022-06-11 17:25:00','description','room_2');
+    insert into meetings(group_id, meeting_start, meeting_end, meeting_description, meeting_room)
+    value('4','2022-06-11 16:25:00','2022-06-11 18:25:00','description','room_1');
+    insert into meetings(group_id, meeting_start, meeting_end, meeting_description, meeting_room)
+    value('1','2022-06-12 13:25:00','2022-06-12 15:25:00','description','room_2');
